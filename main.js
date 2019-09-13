@@ -1,4 +1,6 @@
 
+currentState = 0;
+states = [0, 1, 2, 3, 4, 5];
 
 var bigText = document.getElementById('bigText');
 var nextBtn = document.getElementById('nextBtn');
@@ -8,10 +10,10 @@ var resetBtn = document.getElementById('resetBtn');
 resetBtn.addEventListener('click', resetState());
 nextBtn.addEventListener('click', changeState());
 
-currentState = 0;
-states = [0, 1, 2, 3, 4, 5];
 
 var myState = states[currentState];
+console.log(currentState);
+
 
 function resetState() {
    currentState = 0;
@@ -23,8 +25,9 @@ function changeState() {
    renderState();
 }
 
+renderState();
 function renderState() {
-switch (myState) {
+   switch (myState) {
    
    case 0:
       bigText.textContent = 'I can read your mind';
@@ -79,5 +82,3 @@ switch (myState) {
          break;
    }
 }
-
-renderState();

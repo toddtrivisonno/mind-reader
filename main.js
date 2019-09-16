@@ -1,6 +1,7 @@
 
 currentState = 0;
 states = [0, 1, 2, 3, 4, 5];
+symbols = ['!', '@', '#', '$', '%', '&', '*', '?', '+', '='];
 
 var bigText = document.getElementById('bigText');
 var nextBtn = document.getElementById('nextBtn');
@@ -9,6 +10,8 @@ var resetBtn = document.getElementById('resetBtn');
 
 resetBtn.addEventListener('click', resetState);
 nextBtn.addEventListener('click', changeState);
+
+var randomSymbol = symbols[Math.floor(Math.random()*symbols.length)];
 
 function resetState() {
    currentState = 0;
@@ -20,11 +23,23 @@ function changeState() {
    renderState();
 }
 
+function numberSymbol() {
+   var str = "";
+   for (let i = 0; i < 101; i++) {
+      if (i % 9 == 0) {
+      str += i + ' - ' + randomSymbol + '<br>';
+      } else {
+         str += i + ' - ' + symbols[Math.floor(Math.random()*symbols.length)] + '<br>';
+      }
+   }
+   return str;
+}
+
 function renderState() {
    switch (states[currentState]) {
       
       case 0:
-         bigText.textContent = 'I can read your mind';
+         bigText.textContent = 'I can read your mind.';
          nextBtn.style.visibility = 'visible';
          nextBtn.textContent = 'Prove it.';
          smallText.textContent = 'No really. Let me show you.';
@@ -59,18 +74,20 @@ function renderState() {
          break;
                
       case 4:
-         bigText.textContent = '0 - &';
+         
+         combo = numberSymbol();
+         bigText.innerHTML = 'Find your new number. Note the symbol beside the number.';
          nextBtn.style.visibility = 'visible';
-         nextBtn.textContent = 'REVEAL';
-         smallText.textContent = 'Find your new number. Note the symbol beside the number';
+         nextBtn.textContent = 'REVEAL!';
+         smallText.innerHTML = combo;
          resetBtn.style.visibility = 'visible';
          resetBtn.textContent = 'Reset';
          break;
                   
       case 5:
-         bigText.textContent = '&';
+         bigText.innerHTML = randomSymbol;
          nextBtn.style.visibility = 'hidden';
-         smallText.textContent = 'Your symbol is: &';
+         smallText.textContent = 'Your symbol is:' + ' ' + randomSymbol;
          resetBtn.style.visibility = 'visible';
          resetBtn.textContent = 'Reset';
          break;

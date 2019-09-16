@@ -1,0 +1,28 @@
+html, body {
+  height: 100%;
+  background-color: #333;
+  color: #fff;
+}
+
+#bigText {
+   font-size: 2.25em;
+   padding: 1em;
+   padding-bottom: 0.5em;
+   margin: 0px;
+}
+
+#nextBtn {
+   margin: 1em;
+}
+
+#smallText {
+   overflow: auto;
+   font-size: 1.25em;
+   padding: 1em;
+}
+
+#resetBtn {
+   float: right;
+   margin-right: 1em;
+   margin-bottom: 0.25em;
+}

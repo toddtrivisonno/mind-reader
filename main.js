@@ -15,6 +15,7 @@ var randomSymbol = symbols[Math.floor(Math.random()*symbols.length)];
 
 function resetState() {
    currentState = 0;
+   randomSymbol = symbols[Math.floor(Math.random()*symbols.length)];
    renderState();
 }
 
